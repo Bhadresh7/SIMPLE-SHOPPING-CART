@@ -1,0 +1,25 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "shoppingcart-9a3c1",
+          "appId": "1:579750065107:android:102458f9d44e5eef88b526",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "shoppingcart-9a3c1",
+          "configurations": {
+            "android": "1:579750065107:android:102458f9d44e5eef88b526",
+            "ios": "1:579750065107:ios:6474fcaddc54db9488b526",
+            "macos": "1:579750065107:ios:6474fcaddc54db9488b526",
+            "web": "1:579750065107:web:35e331396707eea888b526",
+            "windows": "1:579750065107:web:181203bb92816efc88b526"
+          }
+        }
+      }
+    }
+  }
+}
