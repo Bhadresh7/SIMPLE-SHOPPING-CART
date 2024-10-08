@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_cart/database_connection.dart';
 import 'package:shopping_cart/providers/cart_provider.dart';
-import 'package:shopping_cart/screen/ProductListScreen.dart';
+import 'package:shopping_cart/screen/product_list_screen.dart';
 
-void main() {
-  // await databaseConnection();
-  // if (databaseConnection()) {
-  //   print("connected successfully");
-  //   return;
-  // }
+void main() async {
+  await databaseConnection();
+  if (databaseConnection() != null) {
+    print("connected successfully");
+  } else {
+    print("Not Connected");
+    return;
+  }
   runApp(const myApp());
 }
 
@@ -26,7 +29,7 @@ class myApp extends StatelessWidget {
                 backgroundColor: Colors.pinkAccent,
                 foregroundColor: Colors.white)),
         debugShowCheckedModeBanner: false,
-        home: ProductGridScreen(),
+        home: const ProductGridScreen(),
       ),
     );
   }
