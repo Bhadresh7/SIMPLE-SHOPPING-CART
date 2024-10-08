@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_cart/providers/auth_provider.dart'; // Import your AuthProvider
+import 'package:shopping_cart/providers/auth_provider.dart';
 import 'package:shopping_cart/providers/cart_provider.dart';
 import 'package:shopping_cart/screen/product_cart_screen.dart';
 
@@ -20,15 +20,13 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
       appBar: AppBar(
         actions: [
           Consumer<AuthenticationProvider>(
-            builder: (context, authProvider, child) {
-              return IconButton(
+              builder: (context, authProvider, child) {
+            return IconButton(
                 onPressed: () {
                   authProvider.signOut();
                 },
-                icon: const Icon(Icons.logout),
-              );
-            },
-          ),
+                icon: const Icon(Icons.logout));
+          }),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
@@ -40,7 +38,7 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
               ),
               icon: const Icon(Icons.shopping_cart),
             ),
-          ),
+          )
         ],
       ),
       body: Consumer<CartProvider>(
@@ -59,36 +57,38 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
                     itemBuilder: (context, index) {
                       final category = cartProvider.categories[index];
                       return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            cartProvider.selectCategory(category);
-                          });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Chip(
-                            label: Text(category),
-                            backgroundColor:
-                                cartProvider.selectedCategory == category
-                                    ? Colors.pinkAccent[100]
-                                    : Colors.white,
-                            labelStyle: TextStyle(
-                              color: cartProvider.selectedCategory == category
-                                  ? Colors.white
-                                  : Colors.pinkAccent,
+                          onTap: () {
+                            setState(() {
+                              cartProvider.selectCategory(
+                                  category); // Implement this method in CartProvider
+                            });
+                          },
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Chip(
+                              label: Text(category),
+                              backgroundColor:
+                                  cartProvider.selectedCategory == category
+                                      ? Colors.pinkAccent[100]
+                                      : Colors.white,
+                              labelStyle: TextStyle(
+                                color: cartProvider.selectedCategory == category
+                                    ? Colors.white
+                                    : Colors.pinkAccent,
+                              ),
+                              side: const BorderSide(
+                                color: Colors.pinkAccent,
+                                width: 1,
+                              ),
                             ),
-                            side: const BorderSide(
-                              color: Colors.pinkAccent,
-                              width: 1,
-                            ),
-                          ),
-                        ),
-                      );
+                          ));
                     },
                   ),
                 ),
               ),
 
+              // Grid of Products
               // Grid of Products
               Expanded(
                 child: Padding(
@@ -101,7 +101,13 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
                       mainAxisSpacing: 10, // Space between rows
                       childAspectRatio: 3 / 4, // Aspect ratio of the grid items
                     ),
+                    itemCount: cartProvider.filteredProducts
+                        .length, // Ensure this matches the actual length
                     itemBuilder: (context, index) {
+                      if (index >= cartProvider.filteredProducts.length) {
+                        return Container(); // Or handle the case when there are no products
+                      }
+
                       final product = cartProvider.filteredProducts[index];
                       return GestureDetector(
                         onTap: () {
@@ -144,7 +150,7 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
                               ),
                               const SizedBox(
                                 height: 20,
-                              ),
+                              )
                             ],
                           ),
                         ),
