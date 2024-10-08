@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '579750065107',
     projectId: 'shoppingcart-9a3c1',
     storageBucket: 'shoppingcart-9a3c1.appspot.com',
+    iosClientId: '579750065107-hilsv99kdd0tbv1u677goselcf343kfa.apps.googleusercontent.com',
     iosBundleId: 'com.example.shoppingCart',
   );
 
@@ -72,6 +73,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '579750065107',
     projectId: 'shoppingcart-9a3c1',
     storageBucket: 'shoppingcart-9a3c1.appspot.com',
+    iosClientId: '579750065107-hilsv99kdd0tbv1u677goselcf343kfa.apps.googleusercontent.com',
     iosBundleId: 'com.example.shoppingCart',
   );
 
@@ -83,4 +85,5 @@ class DefaultFirebaseOptions {
     authDomain: 'shoppingcart-9a3c1.firebaseapp.com',
     storageBucket: 'shoppingcart-9a3c1.appspot.com',
   );
+
 }

@@ -22,7 +22,7 @@ class CartScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final cartItem = cartProvider.cartItems[index];
                 return ListTile(
-                  leading: Image.asset(cartItem.product.imageUrl,
+                  leading: Image.network(cartItem.product.imageUrl,
                       width: 50, height: 50),
                   title: Text(cartItem.product.name),
                   subtitle: Text(
@@ -69,7 +69,7 @@ class CartScreen extends StatelessWidget {
             if (cartProvider.cartItems.isNotEmpty)
               ElevatedButton(
                 onPressed: () {
-                  // Action for proceeding to checkout
+                  print("hello");
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pinkAccent[200],

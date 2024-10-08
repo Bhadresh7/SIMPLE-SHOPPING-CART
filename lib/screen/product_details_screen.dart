@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_cart/Modal/Products.dart';
+import 'package:shopping_cart/modals/Products.dart';
 import 'package:shopping_cart/providers/cart_provider.dart';
-import 'package:shopping_cart/screen/ProductCartScreen.dart';
+import 'package:shopping_cart/screen/product_cart_screen.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   final Product product;
@@ -26,7 +26,7 @@ class ProductDetailScreen extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  Image.asset(product.imageUrl, height: 550),
+                  Image.network(product.imageUrl, height: 550),
                   const SizedBox(height: 10),
                   Text(product.name,
                       style: const TextStyle(

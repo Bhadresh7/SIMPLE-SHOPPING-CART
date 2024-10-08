@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:579750065107:android:102458f9d44e5eef88b526",
+        "mobilesdk_app_id": "1:579750065107:android:acdaef8eb9e360d688b526",
         "android_client_info": {
-          "package_name": "com.example.shopping_cart"
+          "package_name": "com.example.database"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "579750065107-pvb2joarg24chogdsu5mokp7r85jbkoq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCy31juHpKAsbEhsEHSzzQ_Ibo6iDG-Sis"
@@ -20,7 +25,55 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579750065107-pvb2joarg24chogdsu5mokp7r85jbkoq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "579750065107-4838atf69v7v8c4k6d3mqkf393armp44.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.databaseConnectivity"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579750065107:android:102458f9d44e5eef88b526",
+        "android_client_info": {
+          "package_name": "com.example.shopping_cart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579750065107-pvb2joarg24chogdsu5mokp7r85jbkoq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy31juHpKAsbEhsEHSzzQ_Ibo6iDG-Sis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579750065107-pvb2joarg24chogdsu5mokp7r85jbkoq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "579750065107-4838atf69v7v8c4k6d3mqkf393armp44.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.databaseConnectivity"
+              }
+            }
+          ]
         }
       }
     }
