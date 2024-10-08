@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_cart/providers/auth_provider.dart'; // Assuming you have AuthProvider for signOut
+import 'package:shopping_cart/providers/auth_provider.dart'; // Import your AuthProvider
 import 'package:shopping_cart/providers/cart_provider.dart';
 import 'package:shopping_cart/screen/product_cart_screen.dart';
 
@@ -22,8 +22,9 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
           Consumer<AuthenticationProvider>(
             builder: (context, authProvider, child) {
               return IconButton(
-                onPressed:
-                    authProvider.signOut, // Call signOut from AuthProvider
+                onPressed: () {
+                  authProvider.signOut();
+                },
                 icon: const Icon(Icons.logout),
               );
             },
@@ -41,7 +42,6 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
             ),
           ),
         ],
-        title: const Text('Product Page'),
       ),
       body: Consumer<CartProvider>(
         builder: (context, cartProvider, child) {
@@ -61,8 +61,7 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
                       return GestureDetector(
                         onTap: () {
                           setState(() {
-                            cartProvider.selectCategory(
-                                category); // Implement this method in CartProvider
+                            cartProvider.selectCategory(category);
                           });
                         },
                         child: Padding(
@@ -95,7 +94,6 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: GridView.builder(
-                    itemCount: cartProvider.filteredProducts.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, // Number of columns
@@ -142,12 +140,11 @@ class _ProductGridScreenState extends State<ProductGridScreen> {
                               ),
                               Text(
                                 '\$${product.price.toStringAsFixed(2)}',
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey,
-                                ),
+                                style: const TextStyle(),
                               ),
-                              const SizedBox(height: 8),
+                              const SizedBox(
+                                height: 20,
+                              ),
                             ],
                           ),
                         ),
