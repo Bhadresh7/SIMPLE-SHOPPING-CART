@@ -19,7 +19,7 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
-            hintText: lableText,
+            labelText: lableText,
             hintStyle: const TextStyle(color: Colors.grey),
             enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey)),

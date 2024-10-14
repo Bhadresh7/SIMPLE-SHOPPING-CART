@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/modals/Products.dart';
@@ -25,8 +26,12 @@ class ProductDetailScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.network(product.imageUrl, height: 550),
+                  CachedNetworkImage(
+                    imageUrl: product.imageUrl,
+                    fit: BoxFit.contain,
+                  ),
                   const SizedBox(height: 10),
                   Text(product.name,
                       style: const TextStyle(
@@ -74,27 +79,6 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10), // Add spacing between the buttons
-                Expanded(
-                  child: SizedBox(
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        side: const BorderSide(color: Colors.pinkAccent),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => CartScreen()));
-                      },
-                      child: const Text(
-                        "Go to Cart",
-                        style:
-                            TextStyle(color: Colors.pinkAccent, fontSize: 18),
-                      ),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),

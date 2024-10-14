@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_cart/providers/cart_provider.dart';
@@ -21,9 +22,20 @@ class CartScreen extends StatelessWidget {
               itemCount: cartProvider.cartItems.length,
               itemBuilder: (context, index) {
                 final cartItem = cartProvider.cartItems[index];
+                final imageUrl = cartItem.product.imageUrl;
+
                 return ListTile(
-                  leading: Image.network(cartItem.product.imageUrl,
-                      width: 50, height: 50),
+                  leading: CachedNetworkImage(
+                    imageUrl: imageUrl.isNotEmpty
+                        ? imageUrl
+                        : 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
+                    // Fallback placeholder
+                    fit: BoxFit.contain,
+                    placeholder: (context, url) =>
+                        const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  ),
                   title: Text(cartItem.product.name),
                   subtitle: Text(
                       'Price: \$${cartItem.product.price.toStringAsFixed(2)}'),
@@ -53,7 +65,6 @@ class CartScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Conditionally render total price and checkout button
             if (cartProvider.cartItems.isNotEmpty)
               Row(
                 children: [
@@ -65,11 +76,10 @@ class CartScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
             if (cartProvider.cartItems.isNotEmpty)
               ElevatedButton(
                 onPressed: () {
-                  print("hello");
+                  print("Proceed to Checkout");
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pinkAccent[200],
