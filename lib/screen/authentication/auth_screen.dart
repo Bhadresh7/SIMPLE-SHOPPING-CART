@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shopping_cart/authentication/login_screen.dart';
+import 'package:shopping_cart/screen/authentication/login_screen.dart';
 import 'package:shopping_cart/screen/product_list_screen.dart';
 
 class AuthScreen extends StatelessWidget {

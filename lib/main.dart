@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_cart/authentication/auth_screen.dart';
 import 'package:shopping_cart/database_connection.dart';
 import 'package:shopping_cart/providers/auth_provider.dart';
 import 'package:shopping_cart/providers/cart_provider.dart';
+import 'package:shopping_cart/screen/authentication/auth_screen.dart';
 
 void main() async {
   await databaseConnection();
