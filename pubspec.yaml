@@ -42,6 +42,9 @@ dependencies:
   shared_preferences: ^2.3.2
   shimmer: ^3.0.0
   cached_network_image: ^3.4.1
+  flutter_form_builder: ^9.5.0
+  form_builder_validators: ^11.0.0
+  toastification: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -59,19 +62,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  assets:
-    - assets/buds.png
-    - assets/headset.png
-    - assets/headset-wired.png
-    - assets/iphone14.png
-    - assets/iphone.png
-    - assets/neckband.png
-    - assets/mixi.png
-    - assets/vacumm.png
-    - assets/coffeeMachine.png
-    - assets/fan.png
-    - assets/fan2.png
-    - assets/keyboard.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

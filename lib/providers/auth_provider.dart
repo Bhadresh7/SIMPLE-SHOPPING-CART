@@ -3,10 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AuthenticationProvider extends ChangeNotifier {
-  final auth = FirebaseAuth.instance;
+  final _auth = FirebaseAuth.instance;
 
   Future<void> signOut() async {
-    await auth.signOut();
+    await _auth.signOut();
     notifyListeners();
+  }
+
+  Future<void> resetPassword(String email) async {
+    await _auth.sendPasswordResetEmail(email: email);
   }
 }
